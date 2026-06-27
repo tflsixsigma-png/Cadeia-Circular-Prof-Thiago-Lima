@@ -26,13 +26,15 @@
     background:linear-gradient(180deg,rgba(11,20,24,.95),rgba(11,20,24,.78));
     backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
   }
-  .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.3px}
-  .brand .dot{width:13px;height:13px;border-radius:50%;background:var(--core);
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.3px;flex:none}
+  .brand>div{white-space:nowrap;line-height:1.18}
+  .brand .dot{width:13px;height:13px;border-radius:50%;background:var(--core);flex:none;
     box-shadow:0 0 0 4px rgba(45,212,191,.18),0 0 18px rgba(45,212,191,.6)}
   .brand small{display:block;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase}
-  nav{display:flex;gap:6px;margin-left:6px}
+  nav{display:flex;gap:6px;margin-left:6px;overflow-x:auto;min-width:0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  nav::-webkit-scrollbar{display:none}
   nav button{
-    background:transparent;border:1px solid transparent;color:var(--muted);
+    background:transparent;border:1px solid transparent;color:var(--muted);flex:none;white-space:nowrap;
     padding:8px 15px;border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer;
     transition:.15s;font-family:inherit;letter-spacing:.2px;
   }
@@ -280,7 +282,10 @@
     .apswrap{padding:16px 14px}.apsnav{width:36px;height:36px;font-size:18px}}
   @media(max-width:760px){
     .grid4{grid-template-columns:1fr}.scroller{padding:34px 22px 80px}
-    nav button{padding:8px 10px;font-size:12px}.searchbox{display:none}
+    header{gap:10px;padding:0 12px}
+    nav{flex:1;margin-left:0}
+    nav button{padding:8px 11px;font-size:12.5px}
+    .searchbox{display:none}.vbadge{display:none}.spacer{display:none}
     #panel{width:100%}.brand small{display:none}
   }
 </style>
@@ -288,7 +293,7 @@
 <body>
 <header>
   <div class="brand"><span class="dot"></span><div>Cadeia Circular<small>Circular Supply Chain Management</small></div></div>
-  <span class="vbadge">v13 · jun 2026</span>
+  <span class="vbadge">v14 · jun 2026</span>
   <nav id="nav">
     <button data-view="apresentacao" class="active">Apresentação</button>
     <button data-view="map">Mapa Conceitual</button>
